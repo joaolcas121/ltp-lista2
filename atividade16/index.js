@@ -1,14 +1,16 @@
-class Produto {
-  constructor(nome, preco) {
-    this.nome = nome;
-    this.preco = preco;
+class Temperatura {
+  constructor(celsius) {
+    this.celsius = celsius;
   }
 
-  aplicarDesconto(percentual) {
-    this.preco -= this.preco * (percentual / 100);
+  converterParaFahrenheit() {
+    return (this.celsius * 9/5) + 32;
+  }
+
+  converterParaKelvin() {
+    return this.celsius + 273.15;
   }
 }
 
-const produto = new Produto("Produto", 100);
-produto.aplicarDesconto(20);
-console.log("Preço com desconto:", produto.preco);
+const temp = new Temperatura(25);
+console.log(temp.converterParaFahrenheit() + "°F");
